@@ -2,6 +2,7 @@ marco:
   name: Marco Zanini
   email: marco@email.it
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 toto:
   name: Toto Martin
