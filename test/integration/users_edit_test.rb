@@ -51,4 +51,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal email, @user.email
   end
 
+  test "friendly forwarding forwards to given url only the first time" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+    get root_url
+    log_in_as(@user)
+    assert_redirected_to user_path(@user)
+  end
+
 end
